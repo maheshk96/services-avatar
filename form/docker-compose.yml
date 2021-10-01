@@ -4,19 +4,11 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    command: 'python appointment.py'
+    command: 'python manage.py runserver 0.0.0.0:8000'
     ports:
-      - 8002:5000
+      - 8000:8000
     volumes:
       - .:/app
-    depends_on:
-      - db
-
-  queue:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    command: 'python -u consumer.py'
     depends_on:
       - db
 
@@ -24,11 +16,11 @@ services:
     image: mysql:5.7.22
     restart: always
     environment:
-      MYSQL_DATABASE: appointment
+      MYSQL_DATABASE: form
       MYSQL_USER: root
       MYSQL_PASSWORD: root 
       MYSQL_ROOT_PASSWORD: root
     volumes:
       - .dbdata:/var/lib/mysql
     ports:
-      - 33068:3306
+      - 33069:3306

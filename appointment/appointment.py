@@ -11,12 +11,12 @@ db = SQLAlchemy(app)
 
 @dataclass
 class User(db.Model):
-    # id: int
-    # first_name: str
-    # last_name: str
-    # email: str
-    # appointment_location: str
-    # appointment_time: str
+    id: int
+    first_name: str
+    last_name: str
+    email: str
+    appointment_location: str
+    appointment_date: str
 
     id = db.Column(db.Integer, primary_key=True, autoincrement=False)
     first_name = db.Column(db.String(200))
@@ -27,8 +27,8 @@ class User(db.Model):
 
 @dataclass
 class Location(db.Model):
-    # id: int
-    # location: str
+    id: int
+    location: str
 
     id = db.Column(db.Integer, primary_key=True)
     location = db.Column(db.String(200))
