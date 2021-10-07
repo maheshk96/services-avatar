@@ -19,15 +19,14 @@ class User(db.Model):
     doctor: str
     consultation_location: str
     consultation_date: str
-    consultation_type: str
 
     id = db.Column(db.Integer, primary_key=True, autoincrement=False)
     first_name = db.Column(db.String(200))
     last_name = db.Column(db.String(200))
     email = db.Column(db.String(200))
+    doctor = db.Column(db.String(200), nullable=True)
     consultation_location = db.Column(db.String(200), nullable=True)
     consultation_date = db.Column(db.Date(), nullable=True)
-    consultation_type = db.Column(db.String(200), nullable=True)
 
 @dataclass
 class Location(db.Model):
